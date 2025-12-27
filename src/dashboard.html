@@ -1,0 +1,22 @@
+<!-- dashboard.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Agente Autónomo Monitor</title>
+</head>
+<body>
+    <div id="status">
+        <h2>Estado del Agente: <span id="agent-status">Activo</span></h2>
+        <p>Progreso: <progress id="progress" value="0" max="100"></progress></p>
+        <div id="logs"></div>
+    </div>
+    <script>
+        // WebSocket para logs en tiempo real
+        const ws = new WebSocket('ws://localhost:8080');
+        ws.onmessage = (event) => {
+            const data = JSON.parse(event.data);
+            document.getElementById('logs').innerHTML += `<p>${data.message}</p>`;
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{
+    "deepseek": {
+        "apiKey": "tu-api-key",
+        "model": "deepseek-coder",
+        "temperature": 0.2
+    },
+    "security": {
+        "sandboxEnabled": true,
+        "maxExecutionTime": 30000,
+        "allowedCommands": ["npm", "npx", "node", "git"],
+        "blockedPatterns": ["rm -rf", "> /dev/sda"]
+    },
+    "projects": {
+        "defaultPath": "./projects",
+        "autoBackup": true,
+        "backupInterval": 300000
+    },
+    "monitoring": {
+        "logLevel": "verbose",
+        "saveLogs": true,
+        "alertOnError": true
+    }
+}
